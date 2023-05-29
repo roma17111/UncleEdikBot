@@ -27,9 +27,12 @@ public class UpdateController {
     public void checkMessage(Update update) {
 
         if (update.hasMessage() && update.getMessage().hasText()) {
-            if (update.getMessage().equals("/test")) {
+            if (update.getMessage().getText().equals("/command1")) {
+                botStart.execute(testClass.sendSticker(update));
                 botStart.sendMessage(testClass.testMessage(update));
+                return;
             }
+            botStart.execute(testClass.sendSticker(update));
             SendMessage message = new SendMessage();
             message.setChatId(update.getMessage().getChatId());
             message.setText("Hello " + update.getMessage().getChat().getFirstName());
