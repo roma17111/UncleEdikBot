@@ -31,14 +31,12 @@ public class BotStart extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
        updateController.checkMessage(update);
-
     }
 
     @Override
     public String getBotUsername() {
         return "Дядя эдик";
     }
-
 
     public void sendMessage(SendMessage message) {
         try {
@@ -47,4 +45,5 @@ public class BotStart extends TelegramLongPollingBot {
             log.error(e.getMessage(),e);
         }
     }
+
 }
